@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.boilerplateapp"
+    namespace "com.ChessCron"
     defaultConfig {
-        applicationId "com.boilerplateapp"
+        applicationId "com.ChessCron"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -83,11 +83,11 @@ android {
     }
     signingConfigs {
         release {
-            if (project.hasProperty('BOILERPLATE_APP_UPLOAD_STORE_FILE')) {
-                storeFile file(BOILERPLATE_APP_UPLOAD_STORE_FILE)
-                storePassword BOILERPLATE_APP_UPLOAD_STORE_PASSWORD
-                keyAlias BOILERPLATE_APP_UPLOAD_KEY_ALIAS
-                keyPassword BOILERPLATE_APP_UPLOAD_KEY_PASSWORD
+            if (project.hasProperty('CHESSCRON_APP_UPLOAD_STORE_FILE')) {
+                storeFile file(CHESSCRON_APP_UPLOAD_STORE_FILE)
+                storePassword CHESSCRON_APP_UPLOAD_STORE_PASSWORD
+                keyAlias CHESSCRON_APP_UPLOAD_KEY_ALIAS
+                keyPassword CHESSCRON_APP_UPLOAD_KEY_PASSWORD
             }
         }
         debug {

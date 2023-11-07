@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "BoilerplateApp.app"
-               BlueprintName = "BoilerplateApp"
-               ReferencedContainer = "container:BoilerplateApp.xcodeproj">
+               BuildableName = "ChessCron.app"
+               BlueprintName = "ChessCron"
+               ReferencedContainer = "container:ChessCron.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "BoilerplateAppTests.xctest"
-               BlueprintName = "BoilerplateAppTests"
-               ReferencedContainer = "container:BoilerplateApp.xcodeproj">
+               BuildableName = "ChessCronTests.xctest"
+               BlueprintName = "ChessCronTests"
+               ReferencedContainer = "container:ChessCron.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BoilerplateApp.app"
-            BlueprintName = "BoilerplateApp"
-            ReferencedContainer = "container:BoilerplateApp.xcodeproj">
+            BuildableName = "ChessCron.app"
+            BlueprintName = "ChessCron"
+            ReferencedContainer = "container:ChessCron.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BoilerplateApp.app"
-            BlueprintName = "BoilerplateApp"
-            ReferencedContainer = "container:BoilerplateApp.xcodeproj">
+            BuildableName = "ChessCron.app"
+            BlueprintName = "ChessCron"
+            ReferencedContainer = "container:ChessCron.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

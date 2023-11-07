@@ -1,4 +1,4 @@
-package com.boilerplateapp;
+package com.ChessCron;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
