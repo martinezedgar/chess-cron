@@ -7,11 +7,11 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import {StackScreenProps} from '@react-navigation/stack';
+import { StackScreenProps } from '@react-navigation/stack';
 
-import {useAppSelector, useAppDispatch} from '@store/hooks';
-import {decrement, increment} from '@store/slices/exampleCounter';
-import {ExampleStackParamList} from '@navigation/types';
+import { useAppSelector, useAppDispatch } from '@store/hooks';
+import { decrement, increment } from '@store/slices/exampleCounter';
+import { ExampleStackParamList } from '@navigation/types';
 import {
   useGetPostsQuery,
   useLazyGetPostQuery,
@@ -21,14 +21,14 @@ import {
 
 type NavigationProps = StackScreenProps<ExampleStackParamList, 'Example'>;
 
-const ExampleScreen = ({navigation}: NavigationProps): JSX.Element => {
+const ExampleScreen = ({ navigation }: NavigationProps): JSX.Element => {
   const count = useAppSelector(state => state.exampleCounter.value);
   const dispatch = useAppDispatch();
-  const {data: posts, error: getPostsError} = useGetPostsQuery();
-  const [getPost, {data: lazyPost}] = useLazyGetPostQuery();
-  const [createPost, {data: newPost, error: createPostError}] =
+  const { data: posts, error: getPostsError } = useGetPostsQuery();
+  const [getPost, { data: lazyPost }] = useLazyGetPostQuery();
+  const [createPost, { data: newPost, error: createPostError }] =
     useCreatePostMutation();
-  const [getPostComment, {data: lazyPostComment}] =
+  const [getPostComment, { data: lazyPostComment }] =
     useLazyGetPostCommentQuery();
 
   return (
@@ -39,29 +39,32 @@ const ExampleScreen = ({navigation}: NavigationProps): JSX.Element => {
             <View className="flex-1">
               <View className="flex-1 flex-row items-center">
                 <Text className="font-open-bold text-lg">Post Id: </Text>
-                <Text className="font-open-regular text-base">{posts[0].id}</Text>
+                <Text className="font-open-regular text-base">
+                  {posts[0].id}
+                </Text>
               </View>
               <View className="flex-1">
-                <Text className='font-open-bold text-lg'>Post Title: </Text>
-                <Text className='font-open-regular text-base'>{posts[0].title}</Text>
+                <Text className="font-open-bold text-lg">Post Title: </Text>
+                <Text className="font-open-regular text-base">
+                  {posts[0].title}
+                </Text>
               </View>
             </View>
           )}
         </View>
-        {
-          getPostsError &&
-            'originalStatus' in getPostsError &&
-            'error' in getPostsError && (
-              <View>
-                <Text className="text-red-500">
-                  Status: {getPostsError.originalStatus}
-                </Text>
-                <Text className="text-red-500">
-                  Error: {JSON.stringify(getPostsError.error)}
-                </Text>
-              </View>
-            )
-        }
+
+        {getPostsError &&
+          'originalStatus' in getPostsError &&
+          'error' in getPostsError && (
+            <View>
+              <Text className="text-red-500">
+                Status: {getPostsError.originalStatus}
+              </Text>
+              <Text className="text-red-500">
+                Error: {JSON.stringify(getPostsError.error)}
+              </Text>
+            </View>
+          )}
 
         <View className="flex-1 p-[5px] m-[5px]">
           {lazyPost && (
@@ -97,7 +100,7 @@ const ExampleScreen = ({navigation}: NavigationProps): JSX.Element => {
           <View className="m-[10px]">
             <Button
               title="Get the second comment of the first post"
-              onPress={() => getPostComment({postId: '1', commentId: '2'})}
+              onPress={() => getPostComment({ postId: '1', commentId: '2' })}
             />
           </View>
         </View>

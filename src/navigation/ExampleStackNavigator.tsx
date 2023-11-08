@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import ExampleScreen from '@screens/ExampleScreen';
 import HomeExampleScreen from '@screens/HomeExampleScreen';
-import {ExampleStackParamList} from '@navigation/types';
+import { ExampleStackParamList } from '@navigation/types';
 
 const Stack = createStackNavigator<ExampleStackParamList>();
 
@@ -14,7 +14,7 @@ const ExampleStackNavigator = () => {
       <Stack.Screen
         name="HomeExample"
         component={HomeExampleScreen}
-        options={({route}) => ({title: route.name})}
+        options={({ route }) => ({ title: route.name })}
       />
       <Stack.Screen name="Example" component={ExampleScreen} />
     </Stack.Navigator>
