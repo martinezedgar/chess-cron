@@ -8,7 +8,7 @@ import { useColorScheme } from 'nativewind';
 
 import { persistor } from './src/store/config';
 import store from './src/store/config';
-import ExampleStackNavigator from './src/navigation/ExampleStackNavigator';
+import ClockStackNavigator from '@navigation/ClockStackNavigator';
 
 const lightTheme = {
   dark: false,
@@ -43,7 +43,7 @@ function App(): JSX.Element {
         <NavigationContainer
           theme={colorScheme === 'dark' ? darkTheme : lightTheme}
         >
-          <ExampleStackNavigator />
+          <ClockStackNavigator />
         </NavigationContainer>
       </PersistGate>
     </Provider>
