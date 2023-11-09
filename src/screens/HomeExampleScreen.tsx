@@ -9,10 +9,10 @@ type NavigationProps = StackScreenProps<ExampleStackParamList, 'HomeExample'>;
 
 const HomeExampleScreen = ({ navigation }: NavigationProps): JSX.Element => {
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text className="text-red-500">HomeExampleScreen</Text>
+    <View className='flex-1 justify-center items-center'>
+      <Text className='text-red-500'>HomeExampleScreen</Text>
       <Button
-        title="Go to Example"
+        title='Go to Example'
         onPress={() => navigation.navigate('Example')}
       />
     </View>

@@ -12,11 +12,11 @@ const ExampleStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{}}>
       <Stack.Screen
-        name="HomeExample"
+        name='HomeExample'
         component={HomeExampleScreen}
         options={({ route }) => ({ title: route.name })}
       />
-      <Stack.Screen name="Example" component={ExampleScreen} />
+      <Stack.Screen name='Example' component={ExampleScreen} />
     </Stack.Navigator>
   );
 };
