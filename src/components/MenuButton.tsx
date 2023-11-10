@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { Text, Pressable } from 'react-native';
 
 import { StackScreenProps } from '@react-navigation/stack';
 
@@ -19,15 +19,14 @@ const MenuButton = ({
   navigation,
 }: MenuButtonProps): React.ReactNode => {
   return (
-    <View>
-      <Button
-        title={title}
-        onPress={() => {
-          console.log(minutes);
-          navigation.navigation.navigate('Clock');
-        }}
-      />
-    </View>
+    <Pressable
+      className='w-[75%] h-14 m-4 justify-center items-center bg-gray-700'
+      onPress={() => {
+        navigation.navigation.navigate('Clock', { minutes: minutes });
+      }}
+    >
+      <Text className='text-white'>{title}</Text>
+    </Pressable>
   );
 };
 

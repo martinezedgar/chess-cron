@@ -1,11 +1,82 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Pressable, SafeAreaView } from 'react-native';
 
-const ClockScreen = (): React.ReactNode => {
+import { StackScreenProps } from '@react-navigation/stack';
+
+import { ClockStackParamList } from '@navigation/types';
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
+
+type NavigationProps = StackScreenProps<ClockStackParamList, 'Clock'>;
+
+const ClockScreen = ({
+  navigation,
+  route,
+}: NavigationProps): React.ReactNode => {
+  const [whitePlayerClockRunning, setWhitePlayerClockRunning] = useState(false);
+  const [blackPlayerClockRunning, setBlackPlayerClockRunning] = useState(false);
+  const { minutes } = route.params;
+
   return (
-    <View className='flex-1 justify-center items-center'>
-      <Text className='text-red-500'>Clock Screen</Text>
-    </View>
+    <SafeAreaView className='flex-1 justify-center items-center'>
+      <Pressable
+        className='flex-1 justify-center items-center bg-gray-950 w-full rotate-180'
+        onPress={() => {
+          setWhitePlayerClockRunning(true);
+          setBlackPlayerClockRunning(false);
+        }}
+      >
+        <CountdownCircleTimer
+          isPlaying={blackPlayerClockRunning}
+          duration={60 * minutes}
+          colors='#F0F0F0'
+          trailColor='#A0A0A0'
+          size={275}
+        >
+          {({ remainingTime }) => (
+            <Text className='text-neutral-100 text-[100px]'>
+              {remainingTime}
+            </Text>
+          )}
+        </CountdownCircleTimer>
+      </Pressable>
+      <View className='flex-row'>
+        <Pressable
+          className='flex-1 justify-center items-center h-14 bg-gray-700'
+          onPress={() => {
+            setWhitePlayerClockRunning(false);
+            setBlackPlayerClockRunning(false);
+          }}
+        >
+          <Text className='text-[36px]'>{String.fromCodePoint(0x23f8)}</Text>
+        </Pressable>
+        <Pressable
+          className='flex-1 justify-center items-center h-14 w-full bg-gray-700'
+          onPress={() => navigation.navigate('Menu')}
+        >
+          <Text className='text-[36px]'>{String.fromCodePoint(0x274c)}</Text>
+        </Pressable>
+      </View>
+
+      <Pressable
+        className='flex-1 justify-center items-center bg-neutral-100 w-full'
+        onPress={() => {
+          setBlackPlayerClockRunning(true);
+          setWhitePlayerClockRunning(false);
+        }}
+      >
+        <CountdownCircleTimer
+          isPlaying={whitePlayerClockRunning}
+          duration={60 * minutes}
+          colors='#242424'
+          trailColor='#C0C0C0'
+          size={275}
+        >
+          {({ remainingTime }) => (
+            <Text className='text-gray-950 text-[100px]'>{remainingTime}</Text>
+          )}
+        </CountdownCircleTimer>
+      </Pressable>
+    </SafeAreaView>
   );
 };
 

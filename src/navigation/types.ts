@@ -5,5 +5,5 @@ export type ExampleStackParamList = {
 
 export type ClockStackParamList = {
   Menu: undefined;
-  Clock: undefined;
+  Clock: { minutes: number };
 };

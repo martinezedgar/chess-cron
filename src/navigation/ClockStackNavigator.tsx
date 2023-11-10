@@ -14,12 +14,12 @@ const ClockStackNavigator = () => {
       <Stack.Screen
         name='Menu'
         component={MenuScreen}
-        options={({ route }) => ({ title: route.name })}
+        options={() => ({ headerShown: false })}
       />
       <Stack.Screen
         name='Clock'
         component={ClockScreen}
-        options={({ route }) => ({ title: route.name })}
+        options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
   );
