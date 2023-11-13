@@ -5,6 +5,8 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 import { ClockStackParamList } from '@navigation/types';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
+import CloseIcon from '@components/CloseIcon';
+import PauseIcon from '@components/PauseIcon';
 
 type NavigationProps = StackScreenProps<ClockStackParamList, 'Clock'>;
 
@@ -47,13 +49,13 @@ const ClockScreen = ({
             setBlackPlayerClockRunning(false);
           }}
         >
-          <Text className='text-[36px]'>{String.fromCodePoint(0x23f8)}</Text>
+          <PauseIcon />
         </Pressable>
         <Pressable
           className='flex-1 justify-center items-center h-14 w-full bg-gray-700'
           onPress={() => navigation.navigate('Menu')}
         >
-          <Text className='text-[36px]'>{String.fromCodePoint(0x274c)}</Text>
+          <CloseIcon />
         </Pressable>
       </View>
 
