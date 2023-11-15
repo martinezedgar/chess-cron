@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, SafeAreaView } from 'react-native';
+import { View, Pressable, SafeAreaView } from 'react-native';
 
 import { StackScreenProps } from '@react-navigation/stack';
 
 import { ClockStackParamList } from '@navigation/types';
-import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import CloseIcon from '@components/CloseIcon';
 import PauseIcon from '@components/PauseIcon';
+import Timer from '@components/Timer';
 
 type NavigationProps = StackScreenProps<ClockStackParamList, 'Clock'>;
 
@@ -27,19 +27,12 @@ const ClockScreen = ({
           setBlackPlayerClockRunning(false);
         }}
       >
-        <CountdownCircleTimer
-          isPlaying={blackPlayerClockRunning}
-          duration={60 * minutes}
-          colors='#F0F0F0'
-          trailColor='#A0A0A0'
-          size={275}
-        >
-          {({ remainingTime }) => (
-            <Text className='text-neutral-100 text-[100px]'>
-              {remainingTime}
-            </Text>
-          )}
-        </CountdownCircleTimer>
+        <Timer
+          initialTimeSeconds={60 * minutes}
+          playing={blackPlayerClockRunning}
+          fontColor='#F0F0F0'
+          fontSize={100}
+        />
       </Pressable>
       <View className='flex-row'>
         <Pressable
@@ -66,17 +59,12 @@ const ClockScreen = ({
           setWhitePlayerClockRunning(false);
         }}
       >
-        <CountdownCircleTimer
-          isPlaying={whitePlayerClockRunning}
-          duration={60 * minutes}
-          colors='#242424'
-          trailColor='#C0C0C0'
-          size={275}
-        >
-          {({ remainingTime }) => (
-            <Text className='text-gray-950 text-[100px]'>{remainingTime}</Text>
-          )}
-        </CountdownCircleTimer>
+        <Timer
+          initialTimeSeconds={60 * minutes}
+          playing={whitePlayerClockRunning}
+          fontColor='#242424'
+          fontSize={100}
+        />
       </Pressable>
     </SafeAreaView>
   );
