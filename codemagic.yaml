@@ -9,7 +9,7 @@ workflows:
     environment:
       groups:
         - staging
-      node: v20.10.0
+      node: v20.9.0
       java: 17
       xcode: latest
     scripts:
