@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Pressable, SafeAreaView } from 'react-native';
 
 import { StackScreenProps } from '@react-navigation/stack';
+import Sound from 'react-native-sound';
 
 import { ClockStackParamList } from '@navigation/types';
 import CloseIcon from '@components/CloseIcon';
@@ -17,6 +18,19 @@ const ClockScreen = ({
   const [whitePlayerClockRunning, setWhitePlayerClockRunning] = useState(false);
   const [blackPlayerClockRunning, setBlackPlayerClockRunning] = useState(false);
   const { minutes } = route.params;
+  
+  Sound.setCategory('Playback');
+  const tapSound = new Sound('tap_sound.mp3', Sound.MAIN_BUNDLE, (error: any) => {
+    if (error) {
+      console.log('Playback Error');
+      return;
+    }
+    console.log('Playback')
+  })
+  tapSound.setVolume(1)
+  const playSound = (sound: any) => {
+    sound.play()
+  }
 
   return (
     <SafeAreaView className='flex-1 justify-center items-center'>
@@ -25,6 +39,7 @@ const ClockScreen = ({
         onPress={() => {
           setWhitePlayerClockRunning(true);
           setBlackPlayerClockRunning(false);
+          playSound(tapSound);
         }}
       >
         <Timer
@@ -57,6 +72,7 @@ const ClockScreen = ({
         onPress={() => {
           setBlackPlayerClockRunning(true);
           setWhitePlayerClockRunning(false);
+          playSound(tapSound)
         }}
       >
         <Timer
