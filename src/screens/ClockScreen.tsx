@@ -18,19 +18,22 @@ const ClockScreen = ({
   const [whitePlayerClockRunning, setWhitePlayerClockRunning] = useState(false);
   const [blackPlayerClockRunning, setBlackPlayerClockRunning] = useState(false);
   const { minutes } = route.params;
-  
+
   Sound.setCategory('Playback');
-  const tapSound = new Sound('tap_sound.mp3', Sound.MAIN_BUNDLE, (error: any) => {
-    if (error) {
-      console.log('Playback Error');
-      return;
-    }
-    console.log('Playback')
-  })
-  tapSound.setVolume(1)
+  const tapSound = new Sound(
+    'tap_sound.mp3',
+    Sound.MAIN_BUNDLE,
+    (error: any) => {
+      if (error) {
+        console.log('Playback Error');
+        return;
+      }
+    },
+  );
+  tapSound.setVolume(1);
   const playSound = (sound: any) => {
-    sound.play()
-  }
+    sound.play();
+  };
 
   return (
     <SafeAreaView className='flex-1 justify-center items-center'>
@@ -72,7 +75,7 @@ const ClockScreen = ({
         onPress={() => {
           setBlackPlayerClockRunning(true);
           setWhitePlayerClockRunning(false);
-          playSound(tapSound)
+          playSound(tapSound);
         }}
       >
         <Timer
